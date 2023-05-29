@@ -7,6 +7,7 @@ export class Slider {
     if (!options.slides || options.slides.length === 0) {
       throw new Error("List of slides is required")
     }
+
     //set options
     this.delay = options.delay || 2500
     this.root = document.querySelector(options.root)
@@ -16,6 +17,7 @@ export class Slider {
 
     this.currentSlideIndex = 0
     this.timer = null
+
     //init slider
     this.init()
   }
@@ -35,6 +37,7 @@ export class Slider {
       slide.classList.add("slide")
       slide.style.backgroundColor = this.slides[i].color
       slide.textContent = this.slides[i].text
+
       //make first slide visible
       if (i === 0) {
         slide.style.display = "flex"
@@ -50,6 +53,7 @@ export class Slider {
       this.showNextSlide()
     }, this.delay)
   }
+
   //stop interval
   stopSlider() {
     clearInterval(this.timer)
@@ -65,6 +69,7 @@ export class Slider {
       this.stopSlider()
       return
     }
+
     //show next slide element by adding "passed" class
     slides[this.currentSlideIndex].classList.add("passed")
   }
